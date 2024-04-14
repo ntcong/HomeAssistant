@@ -1987,8 +1987,8 @@ variables:
 
             {% set sensor_temp = states(input_temperature_sensor) | float(current_valve_temp) %}
 
-            {% if current_valve_temp != sensor_temp %}
-              {% set offset = sensor_temp - current_valve_temp %}
+            {% if current_valve_target_temp != sensor_temp %}
+              {% set offset = sensor_temp - current_valve_target_temp %}
               {% if(offset > 2) %}
                 {% set offset = 2 %}
               {% elif (offset < -2) %}
